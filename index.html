@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud El-Sawy | Data Analyst</title>
+    <meta name="description" content="Portfolio of Mahmoud El-Sawy, an aspiring Data Analyst turning data into insights.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#0a192f',
+                        charcoal: '#112240',
+                        lightNavy: '#233554',
+                        accent: '#64ffda',
+                        accentDark: '#45b8a0',
+                        slate: '#8892b0',
+                        lightSlate: '#a8b2d1',
+                        whiteest: '#e6f1ff'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Chart.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Phosphor Icons -->
+    <script defer src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body class="bg-navy text-slate font-sans antialiased leading-relaxed overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-navy/90 backdrop-blur-md border-b border-lightNavy transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-accent font-mono text-xl font-bold tracking-tighter">ME.</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-6 text-sm font-mono">
+                        <a href="#home" class="hover:text-accent transition-colors">Home</a>
+                        <a href="#about" class="hover:text-accent transition-colors">About</a>
+                        <a href="#skills" class="hover:text-accent transition-colors">Skills</a>
+                        <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
+                        <a href="#analytics" class="hover:text-accent transition-colors">Analytics</a>
+                        <a href="#workflow" class="hover:text-accent transition-colors">Workflow</a>
+                        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+                        <button id="resume-btn" class="hidden px-4 py-2 border border-accent text-accent rounded hover:bg-accent/10 transition-colors">Resume</button>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate hover:text-accent focus:outline-none">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-lightNavy absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center font-mono text-sm">
+                <a href="#home" class="block px-3 py-2 hover:text-accent">Home</a>
+                <a href="#about" class="block px-3 py-2 hover:text-accent">About</a>
+                <a href="#skills" class="block px-3 py-2 hover:text-accent">Skills</a>
+                <a href="#projects" class="block px-3 py-2 hover:text-accent">Projects</a>
+                <a href="#analytics" class="block px-3 py-2 hover:text-accent">Analytics</a>
+                <a href="#workflow" class="block px-3 py-2 hover:text-accent">Workflow</a>
+                <a href="#contact" class="block px-3 py-2 hover:text-accent">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 lg:px-12">
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center pt-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-accent font-mono mb-4">Hi, my name is</p>
+                    <h1 class="text-5xl md:text-7xl font-bold text-whiteest mb-2" id="hero-name">Mahmoud El-Sawy</h1>
+                    <h2 class="text-3xl md:text-5xl font-bold text-lightSlate mb-6" id="hero-title">Data Analyst</h2>
+                    <p class="text-xl text-accent font-medium mb-6 italic" id="hero-tagline">"Turning Data into Insights, Insights into Decisions."</p>
+                    <p class="max-w-xl text-lg mb-8" id="hero-desc">
+                        <!-- Injected via JS -->
+                    </p>
+                    <div class="flex gap-4 font-mono text-sm">
+                        <a href="#projects" class="px-6 py-3 bg-transparent border border-accent text-accent rounded hover:bg-accent/10 transition-colors">Explore My Projects</a>
+                        <a href="#contact" class="px-6 py-3 bg-accent text-navy rounded hover:bg-accentDark transition-colors font-bold">Get in Touch</a>
+                    </div>
+                    <div class="mt-8 flex gap-4 text-2xl text-lightSlate" id="hero-socials">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+                <div class="hidden lg:block relative">
+                    <!-- Decorative Dashboard Graphic -->
+                    <div class="bg-charcoal rounded-lg border border-lightNavy p-6 shadow-2xl relative z-10">
+                        <div class="flex items-center gap-2 mb-6 border-b border-lightNavy pb-4">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            <span class="ml-4 font-mono text-xs text-slate uppercase tracking-wider">Sample Dashboard - Illustrative Data</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <div class="bg-navy p-4 rounded border border-lightNavy">
+                                <p class="text-xs font-mono text-slate mb-1">Total Revenue</p>
+                                <p class="text-2xl text-accent font-bold">$124,500</p>
+                            </div>
+                            <div class="bg-navy p-4 rounded border border-lightNavy">
+                                <p class="text-xs font-mono text-slate mb-1">Active Users</p>
+                                <p class="text-2xl text-accent font-bold">8,241</p>
+                            </div>
+                        </div>
+                        <div class="bg-navy p-4 rounded border border-lightNavy h-32 flex items-end gap-2">
+                            <!-- Fake bar chart -->
+                            <div class="w-full bg-accent/20 rounded-t h-[40%] hover:bg-accent transition-colors"></div>
+                            <div class="w-full bg-accent/20 rounded-t h-[70%] hover:bg-accent transition-colors"></div>
+                            <div class="w-full bg-accent/20 rounded-t h-[50%] hover:bg-accent transition-colors"></div>
+                            <div class="w-full bg-accent/20 rounded-t h-[90%] hover:bg-accent transition-colors"></div>
+                            <div class="w-full bg-accent/20 rounded-t h-[65%] hover:bg-accent transition-colors"></div>
+                        </div>
+                    </div>
+                    <!-- Decorative background element -->
+                    <div class="absolute inset-0 border-2 border-accent rounded-lg transform translate-x-4 translate-y-4 -z-10"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24">
+            <h2 class="section-heading text-3xl font-bold text-whiteest mb-8 flex items-center">
+                <span class="text-accent font-mono text-xl mr-3">01.</span> About Me
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-4 text-lg" id="about-text">
+                    <!-- Injected via JS -->
+                </div>
+                <div>
+                    <h3 class="text-xl text-whiteest font-semibold mb-4">Core Strengths</h3>
+                    <ul class="space-y-4" id="about-highlights">
+                        <!-- Injected via JS -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+            <h2 class="section-heading text-3xl font-bold text-whiteest mb-12 flex items-center">
+                <span class="text-accent font-mono text-xl mr-3">02.</span> Technical Skills
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-container">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <h2 class="section-heading text-3xl font-bold text-whiteest mb-8 flex items-center">
+                <span class="text-accent font-mono text-xl mr-3">03.</span> Featured Projects
+            </h2>
+            <div class="mb-8 flex flex-wrap gap-4" id="project-filters">
+                <button class="filter-btn active px-4 py-1 border border-accent text-accent rounded hover:bg-accent/10 transition-colors font-mono text-sm" data-filter="All">All</button>
+                <button class="filter-btn px-4 py-1 border border-lightNavy text-slate rounded hover:text-accent hover:border-accent transition-colors font-mono text-sm" data-filter="Excel">Excel</button>
+                <button class="filter-btn px-4 py-1 border border-lightNavy text-slate rounded hover:text-accent hover:border-accent transition-colors font-mono text-sm" data-filter="SQL">SQL</button>
+                <button class="filter-btn px-4 py-1 border border-lightNavy text-slate rounded hover:text-accent hover:border-accent transition-colors font-mono text-sm" data-filter="Power BI">Power BI</button>
+                <button class="filter-btn px-4 py-1 border border-lightNavy text-slate rounded hover:text-accent hover:border-accent transition-colors font-mono text-sm" data-filter="Python">Python</button>
+                <button class="filter-btn px-4 py-1 border border-lightNavy text-slate rounded hover:text-accent hover:border-accent transition-colors font-mono text-sm" data-filter="Tableau">Tableau</button>
+            </div>
+            
+            <!-- Project Detail Modal (Hidden by default) -->
+            <div id="project-modal" class="fixed inset-0 bg-navy/95 z-[100] hidden items-center justify-center p-4 overflow-y-auto">
+                <div class="bg-charcoal max-w-4xl w-full rounded-lg border border-lightNavy p-6 md:p-8 relative mt-10">
+                    <button id="close-modal" class="absolute top-4 right-4 text-slate hover:text-accent text-2xl"><i class="ph ph-x"></i></button>
+                    <div id="modal-content">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-container">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Analytics Playground Section -->
+        <section id="analytics" class="py-24">
+            <h2 class="section-heading text-3xl font-bold text-whiteest mb-4 flex items-center">
+                <span class="text-accent font-mono text-xl mr-3">04.</span> Analytics Playground
+            </h2>
+            <p class="mb-8 text-sm text-yellow-500 border border-yellow-500/30 bg-yellow-500/10 p-3 rounded flex items-center gap-2">
+                <i class="ph ph-warning-circle text-lg"></i>
+                Demonstration dashboard using illustrative sample data. Results are not actual business performance.
+            </p>
+            
+            <div class="bg-charcoal border border-lightNavy rounded-lg p-6">
+                <!-- Controls -->
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <div>
+                        <label class="block text-xs font-mono text-slate mb-1">Time Period</label>
+                        <select id="chart-date-filter" class="bg-navy border border-lightNavy text-slate text-sm rounded focus:ring-accent focus:border-accent block w-full p-2">
+                            <option value="all">All Year</option>
+                            <option value="q1">Q1</option>
+                            <option value="q2">Q2</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-slate mb-1">Category</label>
+                        <select id="chart-category-filter" class="bg-navy border border-lightNavy text-slate text-sm rounded focus:ring-accent focus:border-accent block w-full p-2">
+                            <option value="all">All Categories</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Home">Home</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- KPI Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-navy p-4 rounded border border-lightNavy">
+                        <p class="text-xs font-mono text-slate mb-1">Revenue</p>
+                        <p class="text-2xl text-whiteest font-bold" id="kpi-revenue">$0</p>
+                    </div>
+                    <div class="bg-navy p-4 rounded border border-lightNavy">
+                        <p class="text-xs font-mono text-slate mb-1">Sales Volume</p>
+                        <p class="text-2xl text-whiteest font-bold" id="kpi-volume">0</p>
+                    </div>
+                    <div class="bg-navy p-4 rounded border border-lightNavy">
+                        <p class="text-xs font-mono text-slate mb-1">Avg Order Value</p>
+                        <p class="text-2xl text-whiteest font-bold" id="kpi-aov">$0</p>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-navy p-4 rounded border border-lightNavy">
+                        <h3 class="text-sm font-semibold text-lightSlate mb-4">Revenue Trend</h3>
+                        <div class="relative h-64"><canvas id="trendChart"></canvas></div>
+                    </div>
+                    <div class="bg-navy p-4 rounded border border-lightNavy">
+                        <h3 class="text-sm font-semibold text-lightSlate mb-4">Sales by Category</h3>
+                        <div class="relative h-64"><canvas id="categoryChart"></canvas></div>
+                    </div>
+                    <div class="bg-navy p-4 rounded border border-lightNavy lg:col-span-2">
+                        <h3 class="text-sm font-semibold text-lightSlate mb-4">Regional Performance</h3>
+                        <div class="relative h-64"><canvas id="regionChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Workflow Section -->
+        <section id="workflow" class="py-24">
+            <h2 class="section-heading text-3xl font-bold text-whiteest mb-12 flex items-center">
+                <span class="text-accent font-mono text-xl mr-3">05.</span> Analytical Workflow
+            </h2>
+            <div class="relative border-l border-lightNavy ml-3 md:ml-6 space-y-12" id="workflow-container">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Currently Developing Section -->
+        <section class="py-12 bg-charcoal/50 rounded-lg border border-lightNavy p-8 my-12">
+            <h3 class="text-2xl font-bold text-whiteest mb-4">Currently Developing</h3>
+            <p class="mb-6" id="learning-desc"></p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="text-accent font-mono text-sm mb-3">Courses & Certifications</h4>
+                    <ul class="space-y-2 text-sm" id="learning-courses"></ul>
+                </div>
+                <div>
+                    <h4 class="text-accent font-mono text-sm mb-3">Current Goals</h4>
+                    <ul class="space-y-2 text-sm" id="learning-goals"></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 max-w-2xl mx-auto text-center">
+            <h2 class="text-accent font-mono text-xl mb-4">06. What's Next?</h2>
+            <h2 class="text-4xl md:text-5xl font-bold text-whiteest mb-6">Get In Touch</h2>
+            <p class="mb-12">Whether you have a question, an opportunity, or just want to say hi, I'll try my best to get back to you!</p>
+            
+            <form id="contact-form" class="text-left space-y-4 mb-12 bg-charcoal p-8 rounded-lg border border-lightNavy shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-mono text-lightSlate mb-1" for="name">Name</label>
+                        <input required type="text" id="name" class="w-full bg-navy border border-lightNavy rounded p-2 text-slate focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-mono text-lightSlate mb-1" for="email">Email</label>
+                        <input required type="email" id="email" class="w-full bg-navy border border-lightNavy rounded p-2 text-slate focus:border-accent focus:outline-none transition-colors">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-mono text-lightSlate mb-1" for="subject">Subject</label>
+                    <input required type="text" id="subject" class="w-full bg-navy border border-lightNavy rounded p-2 text-slate focus:border-accent focus:outline-none transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-mono text-lightSlate mb-1" for="message">Message</label>
+                    <textarea required id="message" rows="4" class="w-full bg-navy border border-lightNavy rounded p-2 text-slate focus:border-accent focus:outline-none transition-colors resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-transparent border border-accent text-accent rounded hover:bg-accent/10 transition-colors font-mono font-bold mt-4">
+                    Send Message
+                </button>
+                <p id="form-status" class="text-center text-sm font-mono mt-4 hidden"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="py-6 text-center font-mono text-xs border-t border-lightNavy mt-12">
+        <p>Built for Data. Designed for Impact. <br> &copy; 2026 Mahmoud El-Sawy</p>
+    </footer>
+
+    <script defer src="data.js"></script>
+    <script defer src="script.js"></script>
+</body>
+</html>

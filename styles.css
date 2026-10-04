@@ -1,0 +1,73 @@
+/* Custom Styles for Portfolio */
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #45b8a0 #0a192f;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a192f;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #45b8a0;
+    border-radius: 10px;
+}
+
+/* Section Heading Line */
+.section-heading::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: #233554;
+    margin-left: 20px;
+    flex-grow: 1;
+    max-width: 300px;
+}
+
+/* Project Card Hover Effect */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+}
+
+.project-card:hover .project-title {
+    color: #64ffda;
+}
+
+/* Active Filter Button */
+.filter-btn.active {
+    background-color: rgba(100, 255, 218, 0.1);
+    border-color: #64ffda;
+    color: #64ffda;
+}
+
+/* Modal animation */
+#project-modal {
+    backdrop-filter: blur(5px);
+}
+
+#project-modal > div {
+    animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
